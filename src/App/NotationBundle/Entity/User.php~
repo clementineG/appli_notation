@@ -1,0 +1,122 @@
+<?php
+
+namespace App\NotationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * User
+ *
+ * @ORM\Table(name="user", indexes={@ORM\Index(name="fk_user_sex1_idx", columns={"sex_id"}), @ORM\Index(name="fk_user_class1_idx", columns={"student_class_id"})})
+ * @ORM\Entity
+ */
+class User
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="first_name", type="string", length=100, nullable=true)
+     */
+    private $firstName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="last_name", type="string", length=100, nullable=true)
+     */
+    private $lastName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="text", nullable=true)
+     */
+    private $slug;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birth_date", type="date", nullable=true)
+     */
+    private $birthDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="about", type="string", length=3000, nullable=true)
+     */
+    private $about;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=255, nullable=false)
+     */
+    private $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="array", nullable=false)
+     */
+    private $roles;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_teacher", type="boolean", nullable=false)
+     */
+    private $isTeacher;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_student", type="boolean", nullable=false)
+     */
+    private $isStudent;
+
+    /**
+     * @var \StudentClass
+     *
+     * @ORM\ManyToOne(targetEntity="StudentClass")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="student_class_id", referencedColumnName="id")
+     * })
+     */
+    private $studentClass;
+
+    /**
+     * @var \Sex
+     *
+     * @ORM\ManyToOne(targetEntity="Sex")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="sex_id", referencedColumnName="id")
+     * })
+     */
+    private $sex;
+
+
+}

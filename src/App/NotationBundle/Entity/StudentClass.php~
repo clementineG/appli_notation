@@ -1,0 +1,49 @@
+<?php
+
+namespace App\NotationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * StudentClass
+ *
+ * @ORM\Table(name="student_class", indexes={@ORM\Index(name="fk_student_class_degree1_idx", columns={"degree_id"})})
+ * @ORM\Entity
+ */
+class StudentClass
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=25, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_abbrev", type="string", length=10, nullable=false)
+     */
+    private $nameAbbrev;
+
+    /**
+     * @var \Degree
+     *
+     * @ORM\ManyToOne(targetEntity="Degree")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="degree_id", referencedColumnName="id")
+     * })
+     */
+    private $degree;
+
+
+}

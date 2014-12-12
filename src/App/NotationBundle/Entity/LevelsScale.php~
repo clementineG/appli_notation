@@ -1,0 +1,39 @@
+<?php
+
+namespace App\NotationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LevelsScale
+ *
+ * @ORM\Table(name="levels_scale")
+ * @ORM\Entity
+ */
+class LevelsScale
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=100, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=3000, nullable=true)
+     */
+    private $description;
+
+
+}

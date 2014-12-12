@@ -1,0 +1,44 @@
+Grading:
+    type: entity
+    table: grading
+    indexes:
+        fk_grading_user1_idx:
+            columns:
+                - user_id
+        fk_grading_examination_session1_idx:
+            columns:
+                - examination_session_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        comment:
+            type: string
+            nullable: true
+            length: 3000
+            fixed: false
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        examinationSession:
+            targetEntity: ExaminationSession
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                examination_session_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

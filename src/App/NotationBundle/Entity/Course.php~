@@ -1,0 +1,93 @@
+<?php
+
+namespace App\NotationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Course
+ *
+ * @ORM\Table(name="course", indexes={@ORM\Index(name="fk_course_levels_scale1_idx", columns={"levels_scale_id"})})
+ * @ORM\Entity
+ */
+class Course
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=100, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="full_name", type="string", length=255, nullable=true)
+     */
+    private $fullName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=3000, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="coefficient", type="integer", nullable=true)
+     */
+    private $coefficient;
+
+    /**
+     * @var \LevelsScale
+     *
+     * @ORM\ManyToOne(targetEntity="LevelsScale")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="levels_scale_id", referencedColumnName="id")
+     * })
+     */
+    private $levelsScale;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Degree", inversedBy="course")
+     * @ORM\JoinTable(name="course_degree",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="course_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="degree_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $degree;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Criterion", mappedBy="course")
+     */
+    private $criterion;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->degree = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->criterion = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

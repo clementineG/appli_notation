@@ -1,0 +1,53 @@
+ExaminationSession:
+    type: entity
+    table: examination_session
+    indexes:
+        fk_examination_session_period1_idx:
+            columns:
+                - period_id
+        fk_examination_session_student_class_course1_idx:
+            columns:
+                - student_class_course_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 150
+            fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 3000
+            fixed: false
+        coefficient:
+            type: integer
+            nullable: false
+            unsigned: false
+    manyToOne:
+        period:
+            targetEntity: Period
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                period_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        studentClassCourse:
+            targetEntity: StudentClassCourse
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                student_class_course_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

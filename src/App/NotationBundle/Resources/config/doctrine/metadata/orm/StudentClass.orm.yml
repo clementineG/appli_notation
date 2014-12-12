@@ -1,0 +1,38 @@
+StudentClass:
+    type: entity
+    table: student_class
+    indexes:
+        fk_student_class_degree1_idx:
+            columns:
+                - degree_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 25
+            fixed: false
+        nameAbbrev:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+            column: name_abbrev
+    manyToOne:
+        degree:
+            targetEntity: Degree
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                degree_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

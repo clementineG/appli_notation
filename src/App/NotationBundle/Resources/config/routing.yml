@@ -1,0 +1,55 @@
+app_notation_user:
+    resource: "@AppNotationBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+app_notation_studentClassCourse:
+    resource: "@AppNotationBundle/Resources/config/routing/studentclasscourse.yml"
+    prefix:   /studentClassCourse
+
+app_notation_studentClass:
+    resource: "@AppNotationBundle/Resources/config/routing/studentclass.yml"
+    prefix:   /studentClass
+
+app_notation_sex:
+    resource: "@AppNotationBundle/Resources/config/routing/sex.yml"
+    prefix:   /sex
+
+app_notation_period:
+    resource: "@AppNotationBundle/Resources/config/routing/period.yml"
+    prefix:   /period
+
+app_notation_levelsScale:
+    resource: "@AppNotationBundle/Resources/config/routing/levelsscale.yml"
+    prefix:   /levelsScale
+
+app_notation_level:
+    resource: "@AppNotationBundle/Resources/config/routing/level.yml"
+    prefix:   /level
+
+app_notation_gradingDetail:
+    resource: "@AppNotationBundle/Resources/config/routing/gradingdetail.yml"
+    prefix:   /gradingDetail
+
+app_notation_grading:
+    resource: "@AppNotationBundle/Resources/config/routing/grading.yml"
+    prefix:   /grading
+
+app_notation_examinationSession:
+    resource: "@AppNotationBundle/Resources/config/routing/examinationsession.yml"
+    prefix:   /examinationSession
+
+app_notation_degree:
+    resource: "@AppNotationBundle/Resources/config/routing/degree.yml"
+    prefix:   /degree
+
+app_notation_criterion:
+    resource: "@AppNotationBundle/Resources/config/routing/criterion.yml"
+    prefix:   /criterion
+
+app_notation_course:
+    resource: "@AppNotationBundle/Resources/config/routing/course.yml"
+    prefix:   /course
+
+app_notation_homepage:
+    path:     /
+    defaults: { _controller: AppNotationBundle:Default:index }

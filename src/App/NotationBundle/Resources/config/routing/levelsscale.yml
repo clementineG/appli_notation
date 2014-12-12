@@ -1,0 +1,30 @@
+levelsScale:
+    path:     /
+    defaults: { _controller: "AppNotationBundle:LevelsScale:index" }
+
+levelsScale_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppNotationBundle:LevelsScale:show" }
+
+levelsScale_new:
+    path:     /new
+    defaults: { _controller: "AppNotationBundle:LevelsScale:new" }
+
+levelsScale_create:
+    path:     /create
+    defaults: { _controller: "AppNotationBundle:LevelsScale:create" }
+    requirements: { _method: post }
+
+levelsScale_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppNotationBundle:LevelsScale:edit" }
+
+levelsScale_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppNotationBundle:LevelsScale:update" }
+    requirements: { _method: post|put }
+
+levelsScale_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppNotationBundle:LevelsScale:delete" }
+    requirements: { _method: post|delete }

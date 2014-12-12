@@ -1,0 +1,53 @@
+<?php
+
+namespace App\NotationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Period
+ *
+ * @ORM\Table(name="period")
+ * @ORM\Entity
+ */
+class Period
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=100, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_abbrev", type="string", length=10, nullable=false)
+     */
+    private $nameAbbrev;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="start_at", type="datetime", nullable=false)
+     */
+    private $startAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end_at", type="datetime", nullable=false)
+     */
+    private $endAt;
+
+
+}

@@ -1,0 +1,93 @@
+User:
+    type: entity
+    table: user
+    indexes:
+        fk_user_sex1_idx:
+            columns:
+                - sex_id
+        fk_user_class1_idx:
+            columns:
+                - student_class_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        firstName:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            column: first_name
+        lastName:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+            column: last_name
+        slug:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+        birthDate:
+            type: date
+            nullable: true
+            column: birth_date
+        about:
+            type: string
+            nullable: true
+            length: 3000
+            fixed: false
+        email:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        username:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        roles:
+            type: array
+            nullable: false
+            length: null
+            fixed: false
+        isTeacher:
+            type: boolean
+            nullable: false
+            column: is_teacher
+        isStudent:
+            type: boolean
+            nullable: false
+            column: is_student
+    manyToOne:
+        studentClass:
+            targetEntity: StudentClass
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                student_class_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        sex:
+            targetEntity: Sex
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                sex_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

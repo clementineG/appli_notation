@@ -1,0 +1,66 @@
+<?php
+
+namespace App\NotationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ExaminationSession
+ *
+ * @ORM\Table(name="examination_session", indexes={@ORM\Index(name="fk_examination_session_period1_idx", columns={"period_id"}), @ORM\Index(name="fk_examination_session_student_class_course1_idx", columns={"student_class_course_id"})})
+ * @ORM\Entity
+ */
+class ExaminationSession
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=150, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=3000, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="coefficient", type="integer", nullable=false)
+     */
+    private $coefficient;
+
+    /**
+     * @var \Period
+     *
+     * @ORM\ManyToOne(targetEntity="Period")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="period_id", referencedColumnName="id")
+     * })
+     */
+    private $period;
+
+    /**
+     * @var \StudentClassCourse
+     *
+     * @ORM\ManyToOne(targetEntity="StudentClassCourse")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="student_class_course_id", referencedColumnName="id")
+     * })
+     */
+    private $studentClassCourse;
+
+
+}

@@ -1,0 +1,38 @@
+Level:
+    type: entity
+    table: level
+    indexes:
+        fk_level_level_set1_idx:
+            columns:
+                - level_set_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 100
+            fixed: false
+        nameAbbrev:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+            column: name_abbrev
+    manyToOne:
+        levelSet:
+            targetEntity: LevelsScale
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                level_set_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

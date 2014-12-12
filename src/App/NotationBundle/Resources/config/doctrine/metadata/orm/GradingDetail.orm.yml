@@ -1,0 +1,44 @@
+GradingDetail:
+    type: entity
+    table: grading_detail
+    indexes:
+        fk_grading_detail_grading1_idx:
+            columns:
+                - grading_id
+        fk_grading_detail_criterion1_idx:
+            columns:
+                - criterion_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        percentage:
+            type: decimal
+            nullable: false
+            precision: 5
+            scale: 2
+    manyToOne:
+        grading:
+            targetEntity: Grading
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                grading_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        criterion:
+            targetEntity: Criterion
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                criterion_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

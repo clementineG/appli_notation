@@ -1,0 +1,30 @@
+studentClass:
+    path:     /
+    defaults: { _controller: "AppNotationBundle:StudentClass:index" }
+
+studentClass_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppNotationBundle:StudentClass:show" }
+
+studentClass_new:
+    path:     /new
+    defaults: { _controller: "AppNotationBundle:StudentClass:new" }
+
+studentClass_create:
+    path:     /create
+    defaults: { _controller: "AppNotationBundle:StudentClass:create" }
+    requirements: { _method: post }
+
+studentClass_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppNotationBundle:StudentClass:edit" }
+
+studentClass_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppNotationBundle:StudentClass:update" }
+    requirements: { _method: post|put }
+
+studentClass_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppNotationBundle:StudentClass:delete" }
+    requirements: { _method: post|delete }

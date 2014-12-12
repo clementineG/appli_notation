@@ -1,0 +1,30 @@
+course:
+    path:     /
+    defaults: { _controller: "AppNotationBundle:Course:index" }
+
+course_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppNotationBundle:Course:show" }
+
+course_new:
+    path:     /new
+    defaults: { _controller: "AppNotationBundle:Course:new" }
+
+course_create:
+    path:     /create
+    defaults: { _controller: "AppNotationBundle:Course:create" }
+    requirements: { _method: post }
+
+course_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppNotationBundle:Course:edit" }
+
+course_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppNotationBundle:Course:update" }
+    requirements: { _method: post|put }
+
+course_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppNotationBundle:Course:delete" }
+    requirements: { _method: post|delete }

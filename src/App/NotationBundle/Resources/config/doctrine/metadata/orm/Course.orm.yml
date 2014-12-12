@@ -1,0 +1,71 @@
+Course:
+    type: entity
+    table: course
+    indexes:
+        fk_course_levels_scale1_idx:
+            columns:
+                - levels_scale_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+        fullName:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            column: full_name
+        description:
+            type: string
+            nullable: false
+            length: 3000
+            fixed: false
+        coefficient:
+            type: integer
+            nullable: true
+            unsigned: false
+    manyToOne:
+        levelsScale:
+            targetEntity: LevelsScale
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                levels_scale_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        degree:
+            targetEntity: Degree
+            cascade: {  }
+            mappedBy: null
+            inversedBy: course
+            joinTable:
+                name: course_degree
+                joinColumns:
+                    -
+                        name: course_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: degree_id
+                        referencedColumnName: id
+            orderBy: null
+        criterion:
+            targetEntity: Criterion
+            cascade: {  }
+            mappedBy: course
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

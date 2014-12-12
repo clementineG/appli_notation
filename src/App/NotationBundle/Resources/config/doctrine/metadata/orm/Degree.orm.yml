@@ -1,0 +1,30 @@
+Degree:
+    type: entity
+    table: degree
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+        level:
+            type: integer
+            nullable: false
+            unsigned: false
+    manyToMany:
+        course:
+            targetEntity: Course
+            cascade: {  }
+            mappedBy: degree
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

@@ -1,0 +1,44 @@
+Criterion:
+    type: entity
+    table: criterion
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 3000
+            fixed: false
+        position:
+            type: integer
+            nullable: false
+            unsigned: false
+    manyToMany:
+        course:
+            targetEntity: Course
+            cascade: {  }
+            mappedBy: null
+            inversedBy: criterion
+            joinTable:
+                name: criterion_course
+                joinColumns:
+                    -
+                        name: criterion_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: course_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

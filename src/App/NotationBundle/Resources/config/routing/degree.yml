@@ -1,0 +1,30 @@
+degree:
+    path:     /
+    defaults: { _controller: "AppNotationBundle:Degree:index" }
+
+degree_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppNotationBundle:Degree:show" }
+
+degree_new:
+    path:     /new
+    defaults: { _controller: "AppNotationBundle:Degree:new" }
+
+degree_create:
+    path:     /create
+    defaults: { _controller: "AppNotationBundle:Degree:create" }
+    requirements: { _method: post }
+
+degree_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppNotationBundle:Degree:edit" }
+
+degree_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppNotationBundle:Degree:update" }
+    requirements: { _method: post|put }
+
+degree_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppNotationBundle:Degree:delete" }
+    requirements: { _method: post|delete }

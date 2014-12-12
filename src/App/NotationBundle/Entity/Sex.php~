@@ -1,0 +1,53 @@
+<?php
+
+namespace App\NotationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sex
+ *
+ * @ORM\Table(name="sex")
+ * @ORM\Entity
+ */
+class Sex
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gender", type="string", length=1, nullable=false)
+     */
+    private $gender;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="code", type="boolean", nullable=false)
+     */
+    private $code;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="social_title", type="string", length=15, nullable=false)
+     */
+    private $socialTitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="social_title_abbrev", type="string", length=5, nullable=true)
+     */
+    private $socialTitleAbbrev;
+
+
+}

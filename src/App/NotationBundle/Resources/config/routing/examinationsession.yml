@@ -1,0 +1,30 @@
+examinationSession:
+    path:     /
+    defaults: { _controller: "AppNotationBundle:ExaminationSession:index" }
+
+examinationSession_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppNotationBundle:ExaminationSession:show" }
+
+examinationSession_new:
+    path:     /new
+    defaults: { _controller: "AppNotationBundle:ExaminationSession:new" }
+
+examinationSession_create:
+    path:     /create
+    defaults: { _controller: "AppNotationBundle:ExaminationSession:create" }
+    requirements: { _method: post }
+
+examinationSession_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppNotationBundle:ExaminationSession:edit" }
+
+examinationSession_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppNotationBundle:ExaminationSession:update" }
+    requirements: { _method: post|put }
+
+examinationSession_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppNotationBundle:ExaminationSession:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,68 @@
+<?php
+
+namespace App\NotationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Criterion
+ *
+ * @ORM\Table(name="criterion")
+ * @ORM\Entity
+ */
+class Criterion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=100, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=3000, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="position", type="integer", nullable=false)
+     */
+    private $position;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Course", inversedBy="criterion")
+     * @ORM\JoinTable(name="criterion_course",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="criterion_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="course_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $course;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->course = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

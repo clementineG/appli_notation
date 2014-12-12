@@ -1,3 +1,0 @@
-acme_notation_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AcmeNotationBundle:Default:index }

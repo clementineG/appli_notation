@@ -1,0 +1,57 @@
+StudentClassCourse:
+    type: entity
+    table: student_class_course
+    indexes:
+        fk_student_class_course_course1_idx:
+            columns:
+                - course_id
+        fk_student_class_course_student_class1_idx:
+            columns:
+                - student_class_id
+        fk_student_class_course_user1_idx:
+            columns:
+                - user_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        studentClassCoursecol:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            column: student_class_coursecol
+    manyToOne:
+        studentClass:
+            targetEntity: StudentClass
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                student_class_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        course:
+            targetEntity: Course
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                course_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

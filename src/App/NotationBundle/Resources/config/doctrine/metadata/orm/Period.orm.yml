@@ -1,0 +1,32 @@
+Period:
+    type: entity
+    table: period
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+        nameAbbrev:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+            column: name_abbrev
+        startAt:
+            type: datetime
+            nullable: false
+            column: start_at
+        endAt:
+            type: datetime
+            nullable: false
+            column: end_at
+    lifecycleCallbacks: {  }

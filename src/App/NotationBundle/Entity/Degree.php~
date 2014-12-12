@@ -1,0 +1,53 @@
+<?php
+
+namespace App\NotationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Degree
+ *
+ * @ORM\Table(name="degree")
+ * @ORM\Entity
+ */
+class Degree
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=30, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="level", type="integer", nullable=false)
+     */
+    private $level;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Course", mappedBy="degree")
+     */
+    private $course;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->course = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

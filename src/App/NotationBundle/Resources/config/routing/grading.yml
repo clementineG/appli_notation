@@ -1,0 +1,30 @@
+grading:
+    path:     /
+    defaults: { _controller: "AppNotationBundle:Grading:index" }
+
+grading_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppNotationBundle:Grading:show" }
+
+grading_new:
+    path:     /new
+    defaults: { _controller: "AppNotationBundle:Grading:new" }
+
+grading_create:
+    path:     /create
+    defaults: { _controller: "AppNotationBundle:Grading:create" }
+    requirements: { _method: post }
+
+grading_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppNotationBundle:Grading:edit" }
+
+grading_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppNotationBundle:Grading:update" }
+    requirements: { _method: post|put }
+
+grading_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppNotationBundle:Grading:delete" }
+    requirements: { _method: post|delete }

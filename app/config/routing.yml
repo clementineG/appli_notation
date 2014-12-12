@@ -1,4 +1,4 @@
-acme_notation:
-    resource: "@AcmeNotationBundle/Resources/config/routing.yml"
+app_notation:
+    resource: "@AppNotationBundle/Resources/config/routing.yml"
     prefix:   /
 
